@@ -5,7 +5,7 @@ function galleryItem(photo){
         <>
             <div id="theGallery">
                     <span key={photo.id}>
-                        <img src="images/goat_small.jpg"/>
+                        <img src={photo.photo}/>
                         <p>Description: {photo.description}</p>
                         <p id="numberOfLikes">Image Likes:{photo.number}</p>
                         <button id="likeBtn">Like</button>

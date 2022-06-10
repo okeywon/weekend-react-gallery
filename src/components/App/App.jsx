@@ -3,13 +3,11 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Header from '../Header/Header'
 import GalleryList from '../GalleryList/galleryList'
-import galleryItem from '../GalleryItem/galleryItem';
+import GalleryItem from '../GalleryItem/galleryItem';
 import './App.css';
 
 function App() {
   let [galleryList, setGalleryList] = useState('');
-  let [photoDescription, setPhotoDescription] = useState('');
-  let [photoLikes, setPhotoLikes] = useState(0);
 
   useEffect(() => {
     getGalleryList()
@@ -22,7 +20,7 @@ const getGalleryList = () => {
       url: '/photos'
   }).then((res)=>{
       console.log('res.data', res.data);
-      setShoppingList(res.data)
+      setGalleryList(res.data)
   })
   .catch((error)=> {
       console.log('GET photos app side failed', error);
@@ -32,10 +30,11 @@ const getGalleryList = () => {
     return (
       <div className="App">
         <Header/>
+        {galleryList.length > 0 &&
         <GalleryList
-          galleryList={GalleryList}
+          galleryList={galleryList}
           // updateItem={updateItem}
-        />
+        />}
       </div>
     );
 }
