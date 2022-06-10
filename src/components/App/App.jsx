@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import Header from '../Header/Header'
 import GalleryList from '../GalleryList/galleryList'
 import GalleryItem from '../GalleryItem/galleryItem';
@@ -13,19 +13,19 @@ function App() {
     getGalleryList()
   }, []);
 
-const getGalleryList = () => {
+  const getGalleryList = () => {
 
-  axios({
-      method: 'GET',
-      url: '/photos'
-  }).then((res)=>{
-      console.log('res.data', res.data);
-      setGalleryList(res.data)
-  })
-  .catch((error)=> {
-      console.log('GET photos app side failed', error);
-  });
-};
+    axios({
+        method: 'GET',
+        url: '/photos'
+    }).then((res)=>{
+        console.log('res.data', res.data);
+        setGalleryList(res.data)
+    })
+    .catch((error)=> {
+        console.log('GET photos app side failed', error);
+    });
+  };
 
     return (
       <div className="App">
