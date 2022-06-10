@@ -13,6 +13,16 @@
   font-size: 1.5em;
 }
 
+#theGallery {
+  padding: 0;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: center;
+}
+
 img {
   height: 200px;
   width: 200px;
