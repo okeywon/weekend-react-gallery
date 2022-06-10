@@ -14,7 +14,6 @@ function App() {
   }, []);
 
   const getGalleryList = () => {
-
     axios({
         method: 'GET',
         url: '/photos'
@@ -27,13 +26,28 @@ function App() {
     });
   };
 
+  const likePhoto = (id => {
+    console.log('click likeBtn',id)
+    axios.put(`/photos/${id}`)
+        .then(response => {
+            console.log('in app likeItem axios.then')
+            getNewItem();
+            //change value of class itemDelete to "purchased"
+            
+        })
+        .catch(err => {
+            alert('error updating items in app axios.put.catch')
+        })
+});
+
     return (
       <div className="App">
         <Header/>
         {galleryList.length > 0 &&
         <GalleryList
           galleryList={galleryList}
-          // updateItem={updateItem}
+          GalleryItem={GalleryItem}
+          likePhoto={likePhoto}
         />}
       </div>
     );

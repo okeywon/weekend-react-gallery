@@ -1,7 +1,5 @@
-import galleryItem from "../GalleryItem/galleryItem";
-
-function galleryList({galleryList}){
-
+function galleryList({galleryList, GalleryItem, likePhoto}){
+    console.log('in galleryList', galleryList);
     return (
         <>
             <div id="theGallery">
@@ -9,6 +7,7 @@ function galleryList({galleryList}){
                 <GalleryItem
                     key={photo.id}
                     photo={photo}
+                    likePhoto={likePhoto}
                 />
                 )}
             </div>

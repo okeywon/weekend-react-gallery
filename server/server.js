@@ -9,7 +9,7 @@ app.use(bodyParser.json()); // needed for axios requests
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use('/gallery', gallery);
+app.use('/photos', gallery);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT,  () => {
