@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
   let [galleryList, setGalleryList] = useState('');
+  // add likeNumber, setLikeNumber
 
   useEffect(() => {
     getGalleryList()
@@ -27,17 +28,18 @@ function App() {
   };
 
   const likePhoto = (id => {
-    console.log('click likeBtn',id)
+    console.log('click likeBtn', id);
     axios.put(`/photos/${id}`)
         .then(response => {
-            console.log('in app likeItem axios.then')
+            console.log('in app likeItem axios.then');
+            // setLikeNumber += 1;
             id.number += 1;
             getGalleryList();
         })
         .catch(err => {
             alert('error updating likes in app axios.put.catch')
-        })
-});
+        });
+  });
 
     return (
       <div className="App">

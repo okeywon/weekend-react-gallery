@@ -1,19 +1,19 @@
-function galleryItem(photo, likePhoto){
-    console.log('in galleryItem', photo.photo.description);
+import {useState} from 'react';
 
-    function showDescription(photo){
-        // let description = {photo.description}
-        console.log('clicked photo', {photo});
-        return <img src={photo.photo.description}/>;
-    }
+function galleryItem({photo, likePhoto}){
+    console.log('in galleryItem');
+
+    const [isImage, setIsImage] = useState(true);
 
     return (
         <>
-            <div id="theGallery">
-                    <span key={photo.photo.id}>
-                        <img onClick={() => showDescription(photo)} src={photo.photo.photo} alt={photo.photo.description}/>
-                        <p>Description: {photo.photo.description}</p>
-                        <p className="numberOfLikes">Image Likes:{photo.photo.number}</p>
+            <div id="theGallery" onClick={() => setIsImage(!isImage)}>
+                    <span key={photo.id} >
+                        {isImage ? 
+                        <img src={photo.photo} alt={photo.description}/>
+                        :
+                        <span>{photo.description}</span>}
+                        <p className="numberOfLikes">Image Likes:{photo.number}</p>
                         <button className="likeBtn" onClick={() => likePhoto(photo)}>Like</button>
                     </span>
             </div>

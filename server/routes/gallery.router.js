@@ -16,10 +16,10 @@ router.put('/photos/:id', (req, res) => {
     pool.query(sqlText,sqlParams)
     .then((result) => {
         likeNumber += 1;
-        res.sendStatus(200);
+        res.sendStatus(200, likeNumber);
     })
     .catch((err) => {
-        console.log('error router side', err);
+        console.log('error router side', likeNumber, err);
     })
 }); // END PUT Route
 
