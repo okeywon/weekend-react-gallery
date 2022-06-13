@@ -31,12 +31,11 @@ function App() {
     axios.put(`/photos/${id}`)
         .then(response => {
             console.log('in app likeItem axios.then')
-            getNewItem();
-            //change value of class itemDelete to "purchased"
-            
+            getGalleryList();
+            id.number += 1;
         })
         .catch(err => {
-            alert('error updating items in app axios.put.catch')
+            alert('error updating likes in app axios.put.catch')
         })
 });
 

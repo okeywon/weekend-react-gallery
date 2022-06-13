@@ -8,7 +8,7 @@ function galleryItem(photo, likePhoto){
                         <img src={photo.photo.photo} alt={photo.photo.description}/>
                         <p>Description: {photo.photo.description}</p>
                         <p className="numberOfLikes">Image Likes:{photo.photo.number}</p>
-                        <button className="likeBtn" onClick={() => likePhoto(photo.photo.id)}>Like</button>
+                        <button className="likeBtn" onClick={() => likePhoto(likePhoto.id)}>Like</button>
                     </span>
             </div>
         </>
