@@ -5,15 +5,19 @@ const pool = require('../modules/pool.js');
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
 // PUT Route
-router.put('/photos/:id', (req, res) => {
-    console.log('in router PUT', req.params);
-    const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
+router.put('/likes/:id', (req, res) => {
+    pool.query(`
+        UPDATE photos
+        SET number = number + 1
+        WHERE id = $1;
+    `, [req.params.id])
+        .then(dbRes => {
+            res.sendStatus(204);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
 }); // END PUT Route
 
 // GET Route

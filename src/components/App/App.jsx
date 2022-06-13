@@ -31,7 +31,7 @@ function App() {
     console.log('click likeBtn', id);
     axios({
       method: 'PUT',
-      url: `/galler/like/${id}`
+      url: `/photos/likes/${id}`
     })
       .then(res => {
           console.log('in app likeItem axios.then', res);
