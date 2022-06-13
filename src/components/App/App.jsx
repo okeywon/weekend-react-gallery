@@ -29,16 +29,17 @@ function App() {
 
   const likePhoto = (id => {
     console.log('click likeBtn', id);
-    axios.put(`/photos/${id}`)
-        .then(response => {
-            console.log('in app likeItem axios.then');
-            // setLikeNumber += 1;
-            id.number += 1;
-            getGalleryList();
-        })
-        .catch(err => {
-            alert('error updating likes in app axios.put.catch')
-        });
+    axios({
+      method: 'PUT',
+      url: `/galler/like/${id}`
+    })
+      .then(res => {
+          console.log('in app likeItem axios.then', res);
+          getGalleryList(res);
+      })
+      .catch(err => {
+          alert('error updating likes in app axios.put.catch')
+      });
   });
 
     return (
