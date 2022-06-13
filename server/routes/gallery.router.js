@@ -15,6 +15,7 @@ router.put('/photos/:id', (req, res) => {
     const sqlParams = [likeNumber, req.params.id];
     pool.query(sqlText,sqlParams)
     .then((result) => {
+        likeNumber += 1;
         res.sendStatus(200);
     })
     .catch((err) => {

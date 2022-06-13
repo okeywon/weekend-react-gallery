@@ -31,8 +31,8 @@ function App() {
     axios.put(`/photos/${id}`)
         .then(response => {
             console.log('in app likeItem axios.then')
-            getGalleryList();
             id.number += 1;
+            getGalleryList();
         })
         .catch(err => {
             alert('error updating likes in app axios.put.catch')

@@ -7,7 +7,7 @@ function galleryList({galleryList, GalleryItem, likePhoto}){
                 <GalleryItem
                     key={photo.id}
                     photo={photo}
-                    likePhoto={likePhoto.id}
+                    likePhoto={likePhoto}
                 />
                 )}
             </div>
